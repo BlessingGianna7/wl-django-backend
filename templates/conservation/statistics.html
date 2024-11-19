@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - Wildlife Conservation</title>
+    <link rel="stylesheet" href="{% static 'conservation/styles.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Wildlife Conservation Statistics</h2>
+        
+        <!-- Summary Section -->
+        <div class="stats-summary">
+            <div class="stat-box">
+                <h3>Total Animals</h3>
+                <p class="stat-number">{{ total_animals }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Guiders</h3>
+                <p class="stat-number">{{ total_guiders }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Guests</h3>
+                <p class="stat-number">{{ total_guests }}</p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>Monthly Visitor Trends</h3>
+                <canvas id="visitorTrends"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>Animal Species Distribution</h3>
+                <canvas id="speciesDistribution"></canvas>
+            </div>
+        </div>
+
+        <p><a href="{% url 'home' %}">Back to Home</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Wildlife Conservation Project. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Visitor Trends Chart
+        new Chart(document.getElementById('visitorTrends'), {
+            type: 'line',
+            data: {
+                labels: {{ visitor_months|safe }},
+                datasets: [{
+                    label: 'Monthly Visitors',
+                    data: {{ visitor_counts|safe }},
+                    borderColor: '#4CAF50',
+                    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Monthly Visitor Trends'
+                    }
+                }
+            }
+        });
+
+        // Species Distribution Chart
+        new Chart(document.getElementById('speciesDistribution'), {
+            type: 'pie',
+            data: {
+                labels: {{ species_labels|safe }},
+                datasets: [{
+                    data: {{ species_counts|safe }},
+                    backgroundColor: [
+                        '#4CAF50',
+                        '#2196F3',
+                        '#FFC107',
+                        '#9C27B0',
+                        '#FF5722'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Animal Species Distribution'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

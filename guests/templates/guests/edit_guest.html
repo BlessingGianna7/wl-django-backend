@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Guest</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'guests/unique_guests_style.css' %}">
+    
+    
+</head>
+<body>
+    <h1>Edit Guest: {{ guest.name }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <div class="nav-buttons">
+        <a href="{% url 'home' %}" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+</body>
+</html>

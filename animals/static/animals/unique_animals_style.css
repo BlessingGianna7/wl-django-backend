@@ -1,0 +1,167 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fef9f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #b36200;
+    text-align: center;
+}
+
+a {
+    color: #b36200;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #874b00;
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff7e6;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #b36200;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #874b00;
+}
+
+
+.animal-actions {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.btn-edit, .btn-delete, .btn-add, .btn-back, .btn-save {
+    padding: 5px 10px;
+    margin: 0 5px;
+    text-decoration: none;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-add {
+    background-color: #2196F3;
+    color: white;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-back {
+    background-color: #666;
+    color: white;
+}
+
+.btn-save {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.messages {
+    margin: 10px 0;
+}
+
+.message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+.message.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.message.error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.no-items-found {
+    text-align: center;
+    color: #666;
+    margin: 20px 0;
+}
+
+.fa-paw {
+    color: #666;
+    margin-left: 10px;
+}
+
+.nav-buttons {
+    margin-bottom: 20px;
+}
+
+.btn-home {
+    background-color: #333;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-home:hover {
+    background-color: #444;
+}
+
+.nav-buttons .fas {
+    margin-right: 5px;
+}

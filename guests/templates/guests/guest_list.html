@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'guests/unique_guests_style.css' %}">
+    
+    
+</head>
+<body></body>
+    <h1>Guest List</h1>
+    <ul>
+        {% for guest in guests %}
+            <li>
+                {{ guest.name }}
+                <div class="guest-actions">
+                    <a href="{% url 'edit_guest' guest.id %}" class="btn-edit">Edit</a>
+                    <a href="{% url 'delete_guest' guest.id %}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this guest?')">Delete</a>
+                </div>
+            </li>
+        {% empty %}
+            <li>No guests found</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_guest' %}" class="btn-add">Add New Guest</a>
+    <div class="nav-buttons">
+        <a href="{% url 'home' %}" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+</body>
+</html>
